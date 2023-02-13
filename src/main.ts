@@ -9,9 +9,12 @@ import { createPinia } from "pinia";
 import pinaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { permissionDirective } from "@/directives/permission";
 
+//持久层pina引用
 const pina = createPinia();
 pina.use(pinaPluginPersistedstate);
+
 const app = createApp(App);
+
 app.use(router);
 app.use(TDesign);
 app.use(createPinia());
