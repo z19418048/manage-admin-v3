@@ -5,10 +5,12 @@ import type { ErrorResponse } from "@/api/types";
 import { MessagePlugin } from "tdesign-vue-next";
 import { useAppStore } from "@/store";
 
+//接口前缀做代理
 const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
 
 const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,
+  //设置请求相应时间
   timeout: 60000,
 });
 const tokenPrefix = "Bearer ";
@@ -37,4 +39,5 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+//抛出instance
 export default instance;

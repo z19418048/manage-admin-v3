@@ -1,3 +1,4 @@
+//定义loginform&&token请求的数据类型
 export type TokenRequest = {
   username: string;
   password: string;

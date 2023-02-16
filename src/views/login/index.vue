@@ -52,11 +52,8 @@
 import { reactive, ref } from "vue";
 import { Icon, MessagePlugin } from "tdesign-vue-next";
 import type { SubmitContext } from "tdesign-vue-next";
-
 import type { TokenRequest } from "@/api/types";
-import tokenApi from "@/api/token";
 import { useAppStore } from "@/store/app";
-
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store";
 
@@ -64,7 +61,7 @@ const rules = {
   username: [{ required: true, message: "请填写用户名" }],
   password: [{ required: true, message: "请填写密码" }],
 };
-
+//定义loginform的基本信息
 const loginForm = reactive<TokenRequest>({
   username: "",
   password: "",

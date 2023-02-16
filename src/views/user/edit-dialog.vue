@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { computed } from "vue";
-
+//提供传给父组件的参数类型
 const props = defineProps({
   show: {
     type: Boolean,

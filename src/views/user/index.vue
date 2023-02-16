@@ -40,6 +40,7 @@
       </template>
     </t-table>
   </t-card>
+  <!-- 编辑弹窗组件-->
   <edit-dialog
     :show="showDialog"
     :data="editData"
@@ -81,6 +82,8 @@ const defaultData: UserType = {
   roles: [],
   permissions: [],
 };
+// 弹窗组件的CURD
+// showDialog => 显示弹框
 const { showDialog, editData, handleCreate, handleEdit, onDialogClose } =
   useEditDialog(defaultData);
 </script>

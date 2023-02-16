@@ -62,8 +62,10 @@ export const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHashHistory(),
+  //严格模式
   strict: true,
   routes,
+  //跳转的时候回到原先的位置
   scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 

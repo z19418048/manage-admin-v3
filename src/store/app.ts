@@ -1,6 +1,6 @@
 import { useUserStore } from "@/store/user";
 import type { TokenRequest } from "@/api/types";
-import { defineStore, type StoreDefinition } from "pinia";
+import { defineStore } from "pinia";
 import tokenApi from "@/api/token";
 
 type AppState = {
