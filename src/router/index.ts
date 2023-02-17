@@ -53,6 +53,16 @@ export const routes: Array<RouteRecordRaw> = [
               permission: PermissionEnum.USER_LIST,
             },
           },
+          {
+            name: "role-list",
+            path: "roles",
+            component: () => import("@/views/user/roles.vue"),
+            meta: {
+              title: "角色管理",
+              permission: PermissionEnum.USER_ROLES,
+              icon: "secured",
+            },
+          },
         ],
       },
     ],

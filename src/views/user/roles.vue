@@ -2,7 +2,7 @@
   <t-card>
     <div class="action-area">
       <t-button
-        v-permission="PermissionEnum.USER_LIST_CREATE"
+        v-permission="PermissionEnum.USER_ROLES_CREATE"
         @click="handleCreate"
         >创建用户
       </t-button>
@@ -11,7 +11,12 @@
       <t-input
         class="search-input"
         v-model="searchKey.name"
-        placeholder="请输入用户名"
+        placeholder="请输入角色名称"
+      ></t-input>
+      <t-input
+        class="search-input"
+        v-model="searchKey.label"
+        placeholder="请输入角色标识"
       ></t-input>
       <t-button @click="fetchData">
         <template #icon>
@@ -51,51 +56,43 @@
 
 <script lang="ts" setup>
 import { PermissionEnum } from "@/config/permission.config";
-import { Icon } from "tdesign-vue-next";
-import { useSearch } from "@/composables/useSearch";
-import userApi from "@/api/user";
-import { reactive } from "vue";
-import type { UserCreateRequest, UserType } from "@/api/types";
-import EditDialog from "@/views/user/edit-dialog.vue";
 import { useEditDialog } from "@/composables/useEditDialog";
+import type { RoleCreateRequest, RoleType } from "@/api/types";
+import roleApi from "@/api/role";
+import { reactive } from "vue";
+import { useSearch } from "@/composables/useSearch";
+import EditDialog from "@/views/user/role-edit-dialog.vue";
+import { Icon } from "tdesign-vue-next";
 
 const columns = [
   { colKey: "id", title: "ID" },
-  { colKey: "username", title: "用户名" },
-  { colKey: "nickname", title: "昵称" },
-  { colKey: "roles", title: "角色" },
+  { colKey: "name", title: "角色名称" },
+  { colKey: "label", title: "角色表示" },
   { colKey: "operation", title: "操作" },
 ];
 
 const searchKey = reactive({
   name: "",
+  label: "",
 });
-const { data, fetchData, pagination, loading, onPageChange } = useSearch<
-  UserType,
-  {
-    name: string;
-  }
->(userApi, searchKey);
-const defaultData: UserType = {
-  id: "",
-  username: "",
-  nickname: "",
-  roles: [],
-  permissions: [],
-};
-// 弹窗组件的CURD
-// showDialog => 显示弹框
+
 const {
   showDialog,
   editData,
   handleCreate,
-  handleEdit,
   onDialogClose,
+  handleEdit,
   handleConfirm,
-} = useEditDialog<UserType, UserCreateRequest>(userApi, "用户");
+} = useEditDialog<RoleType, RoleCreateRequest>(roleApi, "角色");
+const { data, fetchData, pagination, loading, onPageChange } = useSearch<
+  RoleType,
+  {
+    name: string;
+    label: string;
+  }
+>(roleApi, searchKey);
 </script>
 
-user.list()
 <style lang="less" scoped>
 .search-area {
   margin-top: 20px;

@@ -1,12 +1,13 @@
-import { useUserStore } from "@/store/user";
-import type { TokenRequest } from "@/api/types";
 import { defineStore } from "pinia";
+import type { TokenRequest } from "@/api/types";
 import tokenApi from "@/api/token";
+import { useUserStore } from "@/store/user";
 
 type AppState = {
   token: string;
   menuCollapse: boolean;
 };
+
 export const useAppStore = defineStore("app", {
   state: (): AppState => {
     return {
