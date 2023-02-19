@@ -5,6 +5,7 @@ import router from "@/router";
 // 引入组件库全局样式资源
 import "tdesign-vue-next/dist/reset.css";
 import "tdesign-vue-next/es/style/index.css";
+import "@/assets/less/base.less";
 import { createPinia } from "pinia";
 import pinaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { permissionDirective } from "@/directives/permission";

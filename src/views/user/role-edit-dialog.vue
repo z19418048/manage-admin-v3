@@ -6,12 +6,27 @@
     @close="$emit('close')"
     @confirm="handleConfirm"
   >
-    <t-form ref="form" :data="role" :rules="rules">
+    <t-form ref="form" class="dialog-form" :data="role" :rules="rules">
       <t-form-item label="角色名称" name="name">
-        <t-input placeholder="请输入角色名称" v-model="role.username" />
+        <t-input v-if="role.id" disabled :value="role.name"></t-input>
+        <t-input
+          v-if="!role.id"
+          placeholder="请输入角色名称"
+          v-model="role.name"
+        />
       </t-form-item>
-      <t-form-item label="用户标识" name="nickname">
-        <t-input placeholder="请输入用户表示" v-model="role.nickname" />
+      <t-form-item label="角色标识" name="label">
+        <t-input placeholder="请输入用户标识" v-model="role.label" />
+      </t-form-item>
+      <t-form-item label="权限集" name="permissions">
+        <t-tree
+          :data="permissionsTree"
+          hover
+          expand-all
+          :checkable="true"
+          value-mode="all"
+          v-model="role.permissions"
+        />
       </t-form-item>
     </t-form>
   </t-dialog>
@@ -21,7 +36,7 @@
 import { computed, ref, watch } from "vue";
 import type { Ref } from "vue";
 import type { RoleType } from "@/api/types";
-
+import { permissionsTree } from "@/config/permission.config";
 //提供传给父组件的参数类型
 interface Props {
   show: boolean;

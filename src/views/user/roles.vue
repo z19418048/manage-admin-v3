@@ -4,7 +4,7 @@
       <t-button
         v-permission="PermissionEnum.USER_ROLES_CREATE"
         @click="handleCreate"
-        >创建用户
+        >创建角色
       </t-button>
     </div>
     <div class="search-area">
@@ -84,6 +84,7 @@ const {
   handleEdit,
   handleConfirm,
 } = useEditDialog<RoleType, RoleCreateRequest>(roleApi, "角色");
+
 const { data, fetchData, pagination, loading, onPageChange } = useSearch<
   RoleType,
   {
@@ -93,13 +94,4 @@ const { data, fetchData, pagination, loading, onPageChange } = useSearch<
 >(roleApi, searchKey);
 </script>
 
-<style lang="less" scoped>
-.search-area {
-  margin-top: 20px;
-  display: flex;
-  .search-input {
-    width: 200px;
-    margin-right: 20px;
-  }
-}
-</style>
+<style lang="less" scoped></style>
