@@ -34,10 +34,11 @@ const clickHandler = async ({ value }: DropdownOption) => {
   switch (value) {
     case "logout":
       await appStore.logout();
-      await router.push(`login?redirect=${route.fullPath}`);
+      await router.push({
+        name: "login",
+        params: { redirect: route.fullPath },
+      });
       break;
-    default:
-      throw new Error("该指令无设置任何操作");
   }
 };
 </script>

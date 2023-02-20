@@ -7,7 +7,9 @@
         <t-content class="content-layout">
           <router-view></router-view>
         </t-content>
-        <t-footer>底部区域</t-footer>
+        <t-footer style="text-align: center"
+          >Copyright @ 2022-2023 ManageAdmin.</t-footer
+        >
       </t-layout>
     </t-layout>
   </div>
