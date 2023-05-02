@@ -12,7 +12,7 @@
           <template #icon>
             <icon name="user"></icon>
           </template>
-          {{ userStore.currentUser && userStore.currentUser.nickname }}
+          {{ (userStore.currentUser = zlong) }}
         </t-button>
       </t-dropdown>
     </div>

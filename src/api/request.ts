@@ -23,7 +23,6 @@ instance.interceptors.request.use((request: AxiosRequestConfig) => {
   }
   return request;
 });
-
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
     return response.data;

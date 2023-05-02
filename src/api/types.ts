@@ -1,3 +1,8 @@
+export type State = {
+  data: null;
+  error: null;
+};
+
 //定义loginform&&token请求的数据类型
 export type TokenRequest = {
   username: string;
@@ -16,6 +21,7 @@ export type UserType = {
   roles: Array<string>;
   permissions: Array<string>;
 };
+
 export type RoleType = {
   id: string;
   name: string;
@@ -60,3 +66,9 @@ export interface RoleCreateRequest {
   label: string;
   permission: Array<string>;
 }
+
+export type TotalMessage = {
+  resultMessage: string;
+  resultObject: string;
+  resultNum: string;
+};

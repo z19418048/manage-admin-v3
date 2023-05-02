@@ -25,9 +25,7 @@
 import { computed, ref, watch } from "vue";
 import type { Ref } from "vue";
 import type { UserType } from "@/api/types";
-import userApi from "@/api/user";
-import { MessagePlugin } from "tdesign-vue-next";
-import type { FormInstanceFunctions } from "tdesign-vue-next";
+
 //提供传给父组件的参数类型
 interface Props {
   show: boolean;
